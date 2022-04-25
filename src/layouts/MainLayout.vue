@@ -8,7 +8,7 @@
           round
           icon="la la-bars"
           aria-label="Menu"
-          @click="toggleLeftDrawer"
+          @click="toogleAsideMenu"
         />
 
         <q-toolbar-title> App </q-toolbar-title>
@@ -17,7 +17,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
+    <q-drawer v-model="sideMenuOpen" show-if-above bordered>
       <q-list>
         <q-item-label header> Essential Links </q-item-label>
 
@@ -36,26 +36,25 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+
+
 import EssentialLink from "components/EssentialLink.vue";
 import { linksList } from "../router/link-list.js";
+import useUI from  "../composables/useUI";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "MainLayout",
-
   components: {
     EssentialLink,
   },
 
   setup() {
-    const leftDrawerOpen = ref(false);
-
+    const {sideMenuOpen,toogleAsideMenu }= useUI();
     return {
+      sideMenuOpen,
       linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
+      toogleAsideMenu,
     };
   },
 });

@@ -59,14 +59,25 @@
       exercitationem quae sit deserunt deleniti dicta cupiditate quaerat nisi
       doloremque ducimus, ab recusandae culpa?</span
     >
+    <q-btn @click="toogleAsideMenu" color="primary" :label="sideMenuOpen?'Cerrar menu lateral':'Abrir menu lateral'" class="q-mt-md"/>
   </q-page>
+
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent} from "vue";
+import useUI from "../composables/useUI.js";
 
 export default defineComponent({
   name: "TypographyPage",
+  setup(){
+    const { toogleAsideMenu,sideMenuOpen }= useUI();
+    return {
+      toogleAsideMenu,
+      sideMenuOpen
+
+    }
+  }
 });
 </script>
 

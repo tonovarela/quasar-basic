@@ -6,7 +6,9 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
       { path: 'typography', name: 'typography', component: () => import('pages/TypographyPage.vue') },
-      { path: 'flex', name: 'flex', component: () => import('pages/FlexPage.vue') }
+      { path: 'flex', name: 'flex', component: () => import('pages/FlexPage.vue') },
+      { path: 'dialogs', name: 'dialogs', component: () => import('pages/Dialogs.vue') },
+      { path: 'forms', name: 'forms', component: () => import('pages/Forms.vue') }
     ]
   },
 
